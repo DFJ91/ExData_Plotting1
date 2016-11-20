@@ -11,14 +11,6 @@ datos<-datos[-1,]
 
 datos_v2<-subset(datos,Date=="1/2/2007"| Date=="2/2/2007")
 
-for (i in 1:nrow(datos_v2)){datos_v2[i,1]<-wday(dmy(datos_v2[i,1]))}
-
-for (i in 1:nrow(datos_v2)){
-        if (datos_v2[i,1] =="5") datos_v2[i,1]<-"Thurs"
-            if (datos_v2[i,1]=="6") datos_v2[i,1]<-"Fri"
-               if (i==nrow(datos_v2)) datos_v2[i,1]<-"Sat"
-        }
-
 graphics.off()
 
 plot(datos_v2$Global_active_Power,ylab = "Global Active Power (kilowatts)",xlab = "Weekday",type="l",xaxt="n")
